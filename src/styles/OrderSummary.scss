@@ -1,0 +1,32 @@
+.order-summary{
+    font-size: 14px;
+    font-family: CABOTO, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    color: #000;
+
+    div{
+        padding: .5rem 0px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .discount-summary{
+        display: flex;
+        flex-direction: row;
+
+        span{
+            color: red;
+        }
+
+    }
+    .subtotal-summary{
+        padding-top: 2rem;
+    }
+    .total-summary{
+        padding-top: 2rem;
+        padding-bottom: 24px;
+    }
+}

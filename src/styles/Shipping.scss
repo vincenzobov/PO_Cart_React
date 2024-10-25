@@ -1,0 +1,109 @@
+.shipping-options {
+    
+  }
+  
+  .shipping-option {
+    display: flex;
+    flex-direction: column;
+    padding: 25px 24px;
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    background-color: #FFF;
+  
+    &:hover {
+      border-color: #007f56;
+    }
+  }
+  
+  .shipping-option.selected {
+    border-color: #007f56;
+  }
+  
+  .shipping-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    label{
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+    }
+
+    span{
+        margin-right: 16px;
+    }
+    input{
+        margin-right: 16px;
+    }
+
+  }
+  
+  .shipping-name {
+    width: 100%;
+    display: block;
+    background-color: #fff;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    width: 62%;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    color: #000;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    line-height: 30px;
+  }
+
+  .shipping-icon{
+    margin-right: 16px;
+    display: block;
+    width: fit-content;
+  }
+  
+  .shipping-price {
+      letter-spacing: 1.4px;
+      font-size: 14px;
+      position: relative;
+      margin-left: auto;
+      line-height: 30px;
+  }
+  
+  .shipping-description {
+    color: #666;
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: oblique;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: grey;
+  }
+  
+  .shipping-delivery {
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000;
+  }
+  
+  .shipping-icon svg {
+    display: block;
+    min-width: 30px;
+    max-width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat
+  }

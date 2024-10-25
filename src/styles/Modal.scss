@@ -1,0 +1,27 @@
+.modal {
+    position: fixed;
+    top: 76px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 1000;
+    min-width: 500px;
+  
+    &-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .modal-content-buttons{
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  
+    button {
+      margin: 5px;
+    }
+  }
+  
