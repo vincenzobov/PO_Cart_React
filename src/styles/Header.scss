@@ -1,0 +1,108 @@
+@import 'mixins';
+
+/* Stile dell'header */
+header {
+    background-color: white;
+    padding: 20px 0;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header__row1 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+
+    @include mobile{
+        
+    }
+  }
+  
+  /* Stile del logo */
+  #contentLink_1_HeaderStoreLogo_Content {
+    display: flex;
+    align-items: center;
+  }
+  
+  #contentLink_1_HeaderStoreLogo_Content span {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+  }
+  
+  /* Stile della lista di navigazione */
+  .nav__list {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    @include mobile{
+        display: none;
+    }
+  }
+  
+  .nav__item {
+    margin-left: 30px;
+  }
+  
+  .nav__link {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 10px;
+  }
+  
+  .nav__link:hover {
+    color: #a3a3a3;
+  }
+  
+  .menuLink {
+    letter-spacing: 1px;
+  }
+  
+  /* Stile del pulsante 'NEW ARRIVALS' */
+  .ct-nav-gg {
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .ct-nav-gg:hover {
+    background-color: #333;
+  }
+  
+  /* Stile per il pulsante nella visualizzazione mobile */
+  .nav__link--phone {
+    display: none;
+  }
+  
+  /* Stile per le visualizzazioni responsive */
+  @media (max-width: 768px) {
+    .nav__link.desktop {
+      display: none;
+    }
+  
+    .nav__link--phone {
+      display: inline-block;
+      font-size: 14px;
+      margin-left: 20px;
+    }
+  
+    .nav__list {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .nav__item {
+      margin-left: 0;
+      margin-bottom: 15px;
+    }
+  }
+  
