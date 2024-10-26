@@ -9,6 +9,9 @@ $remove-color: #d9534f;
 $wishlist-color: #5bc0de;
 $font-family: 'Arial', sans-serif;
 
+
+@import 'mixins';
+
 .product {
   border: 1px solid $product-border;
   border-radius: 10px;
@@ -29,12 +32,27 @@ $font-family: 'Arial', sans-serif;
     align-items: center;
     min-width: 250px;
 
+    @include mobile{
+      flex-direction: row;
+
+      justify-content: start;
+      margin: 8% 0 0;
+
+    }
+
+    .img-container{
+      width: 35%;
+      border-right: 1px solid #bfbfbf;
+    }
+
     img {
       width: 100%;
       height: auto; /* Aggiungi altezza automatica */
       border-radius: 10px;
       max-height: 150px; /* Imposta un'altezza massima */
       object-fit: cover; /* Mantieni le proporzioni dell'immagine */
+
+     
     }
 
     .prescription-badge {
@@ -46,6 +64,13 @@ $font-family: 'Arial', sans-serif;
       padding: 5px 10px;
       border-radius: 5px;
       font-size: 0.8em;
+
+      @include mobile{
+        position: relative;
+        left: 0;
+        bottom: 0;
+        padding: 0;
+      }
     }
   }
 
@@ -132,35 +157,7 @@ $font-family: 'Arial', sans-serif;
       }
     }
 
-    .estimated-delivery-date-container {
-      position: relative;
-      margin: 0;
-      width: 100%;
-      height: 100%;
-      box-sizing: border-box;
-      border-top: 1px solid #bfbfbf;
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 8px;
-      padding-top: 16px;
-      grid-column: 1 / 4; /* Occupa entrambe le colonne */
-
-      div{
-        margin: 0;
-      }
-      .estimated-text{
-        font-size: 14px;
-        line-height: 1.14;
-      }
-      .estimated-date{
-        color: #6d6d6d;
-        font-size: 14px;
-        line-height: 1.14;
-        text-decoration: underline;
-      }
-    }
+   
 
     .remove-wishlist-container {
       display: flex;
@@ -207,4 +204,125 @@ $font-family: 'Arial', sans-serif;
       }
     }
   }
+
+  .estimated-delivery-date-container {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border-top: 1px solid #bfbfbf;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    padding-top: 16px;
+    grid-column: 1 / 4; /* Occupa entrambe le colonne */
+
+    @include mobile{
+      padding: 16px 24px;
+    }
+
+    div{
+      margin: 0;
+    }
+    .estimated-text{
+      font-size: 14px;
+      line-height: 1.14;
+    }
+    .estimated-date{
+      color: #6d6d6d;
+      font-size: 14px;
+      line-height: 1.14;
+      text-decoration: underline;
+    }
+  }
+
+  .main-info-mobile {
+     margin-left: 10px;
+     width: 65%;
+
+    .model-name {
+      font-family: $font-family;
+      font-weight: bold;
+      font-size: 1.5em; /* Aumenta la dimensione del font */
+
+      span{
+        font-size: 20px;
+        line-height: 24px;
+      }
+    }
+
+    .total-price {
+      font-size: 1.2em;
+      color: $price-color;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .list-price{
+        color: #7b7b7b;
+        text-decoration: line-through;
+        font-size: 14px;
+        margin-right: 8px;
+      }
+    }
+  }
+
+  .viewMore-remove-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+      justify-content: space-between;
+      grid-column: 1/ 4; /* Occupa entrambe le colonne */
+      margin-bottom: 20px;
+      border-top: 1px solid #bfbfbf;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 18px 18px 0 0;
+      font-size: 12px;
+      color: #000;
+      text-decoration: underline;
+
+      @include mobile{
+        padding: 16px 24px;
+        margin: 0;
+      }
+
+    .remove-container {
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      gap: 4px;
+      align-items: center;
+      
+      a{
+        color: #000;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  @include mobile{
+
+    .addFavorite-container {
+      cursor: pointer;
+      flex-direction: row;
+      gap: 4px;
+      align-items: center;
+      display: flex;
+      padding: 16px 24px;
+      border-top: 1px solid #bfbfbf;
+      
+  
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  
 }
