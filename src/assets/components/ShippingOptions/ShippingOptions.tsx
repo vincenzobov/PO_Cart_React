@@ -63,7 +63,7 @@ function ShippingOptions({ onShippingChange }: ShippingOptionsProps) {
             <label htmlFor={option.name}>
             <span className="shipping-icon">{option.icon}</span>
               <span className="shipping-name">{option.name}</span>
-              <span className="shipping-price">{option.price === 0 ? 'GRATIS' : `$${option.price.toFixed(2)}`}</span>
+              <span className="shipping-price">{option.price === 0 ? 'FREE' : `$${option.price.toFixed(2)}`}</span>
             </label>
           </div>
           <p className="shipping-description">{option.description}</p>

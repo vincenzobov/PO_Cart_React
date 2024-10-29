@@ -5,6 +5,8 @@ import {mockOrderData,mockServiceDetails,mockFrameDetails,mockLensDetails} from 
 import { FrameDetails, OrderData, OrderItem, Price, ProductDetail } from '../../../interfaces/OrderTypes';
 import ShippingOptions from '../ShippingOptions/ShippingOptions';
 import CartButton from '../CartButton/CartButton';
+import useIsMobile from '../../Hook/useIsMobile';
+import EmptyCart from '../EmptyCart/EmptyCart';
 
 const API_BASE_URL = 'https://stage.persol.com/wcs/resources/store/715838388/productview/byId/';
 
@@ -174,8 +176,7 @@ const ShoppingBag = () => {
   }
   
 
-
-  
+  const isMobile = useIsMobile();
 
   return (
     <>
@@ -186,6 +187,10 @@ const ShoppingBag = () => {
           <p>Loading products...</p>
         ) : (
           <>
+          {(isMobile && frames.length > 0) ? <><div className='cart-button-container'>
+            <button className='button-checkout'>Proceed to Checkout</button>
+            </div></> : "" }
+            
             <div className="shopping-bag">
               {frames.length > 0 ? (
                 <div className="product-list">
@@ -204,7 +209,7 @@ const ShoppingBag = () => {
                 </div>
               ) : (
                 <div className="empty-cart">
-                  <p>Carrello vuoto</p>
+                  <EmptyCart />
                 </div>
               )}
             </div>

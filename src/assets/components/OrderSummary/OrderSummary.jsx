@@ -12,7 +12,7 @@ const OrderSummary = ({ subtotal, shippingPrice }) => {
         <div className='discount-summary'><span> Discount : </span> <span>- {subtotal.currency}{totalDiscount} </span> </div>
       )}
       <div> <span>Shipping: </span> <span> {subtotal.currency}{parseFloat(shippingPrice).toFixed(2)} </span></div>
-      <div className='total-summary'><span>Total:</span> {subtotal.currency}{totalPrice}</div>
+      <div className='total-summary'><span>Total:</span> {subtotal.currency}{parseFloat(totalPrice).toFixed(2)}</div>
     </div>
   );
 }
