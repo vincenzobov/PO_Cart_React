@@ -12,6 +12,7 @@ import './styles/CartButton.scss';
 import './styles/App.scss';
 import './styles/Modal.scss';
 import './styles/Header.scss';
+import './styles/EmptyCart.scss';
 
 
 
