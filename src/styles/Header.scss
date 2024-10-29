@@ -35,6 +35,17 @@ header {
   }
   
   /* Stile della lista di navigazione */
+
+  .menu-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    @include mobile{
+        display: none;
+    }
+  }
   .nav__list {
     display: flex;
     list-style-type: none;

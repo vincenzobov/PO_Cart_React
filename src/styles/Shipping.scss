@@ -1,3 +1,5 @@
+@import 'mixins';
+
 .shipping-options {
     
   }
@@ -15,6 +17,10 @@
   
     &:hover {
       border-color: #007f56;
+    }
+
+    @include mobile{
+        padding: 25px 16px 16px 24px;
     }
   }
   
@@ -58,6 +64,10 @@
     letter-spacing: 1.4px;
     text-transform: uppercase;
     line-height: 30px;
+
+    @include mobile{
+      line-height: 1.14;
+    }
   }
 
   .shipping-icon{

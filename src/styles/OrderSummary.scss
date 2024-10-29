@@ -1,3 +1,5 @@
+@import 'mixins';
+
 .order-summary{
     font-size: 14px;
     font-family: CABOTO, sans-serif;
@@ -28,5 +30,9 @@
     .total-summary{
         padding-top: 2rem;
         padding-bottom: 24px;
+
+        @include mobile{
+            font-size: 20px;
+        }
     }
 }
