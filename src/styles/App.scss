@@ -80,4 +80,12 @@
     flex: 1;
     padding-left: 20px;
   }
+
+  .header-logo{
+    width: 70px;
+
+    @include mobile{
+      width: 50px;
+    }
+  }
   
