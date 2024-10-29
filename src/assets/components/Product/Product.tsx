@@ -49,6 +49,38 @@ function getTotalPriceforLenses(lens: ProductDetail, services: ProductDetail[]):
   return TotalPriceLensAndServices;
 }
 
+function getTotalPriceforProduct(framePrice: Price , lens?: ProductDetail, services?: ProductDetail[]): Price {
+ 
+  let getTotalPriceforProduct: Price = {
+    listprice: '0',
+    price: '0',
+    currency: 'USD'
+  };
+
+  let totalListPrice = 0;
+  let totalPrice = 0;
+
+
+  if(!!services && !!lens){
+    services.forEach(service => {
+      totalListPrice += parseFloat(service.price.listprice);
+      totalPrice += parseFloat(service.price.price);
+    });
+  
+    totalListPrice += parseFloat(lens.price.listprice);
+    totalPrice += parseFloat(lens.price.price);
+  }
+
+  totalListPrice += parseFloat(framePrice.listprice);
+  totalPrice += parseFloat(framePrice.price);
+
+  // Converti il risultato in stringa prima di restituirlo
+  getTotalPriceforProduct.listprice = totalListPrice.toFixed(2); // Converte in stringa
+  getTotalPriceforProduct.price = totalPrice.toFixed(2);         // Converte in stringa
+
+  return getTotalPriceforProduct;
+}
+
 function getCurrency(){
   const landId = "-1";
 
@@ -92,6 +124,16 @@ const Product = ({
     setIsOpen(!isOpen);
   };
 
+// Definisci il prezzo di default come un oggetto Price con valori "0"
+const defaultPrice: Price = {
+  listprice: '0',
+  price: '0',
+  currency: 'USD'
+};
+
+// Passa frame?.price o il prezzo di default se frame?.price è undefined
+const totalFramePrice = getTotalPriceforProduct(frame?.price ?? defaultPrice, lens, service);
+
   return (
     <>
     <div className="product">
@@ -108,10 +150,10 @@ const Product = ({
                 <div className='prescription-badge'>PRESCRIPTION LENSES</div>
               )}
               <div className='total-price'>
-                {parseFloat(frame?.price.listprice || "0") > parseFloat(frame?.price.price || "0") && (
-                  <div className='list-price'>{getCurrency()}{frame?.price?.listprice}</div>
+               {parseFloat(totalFramePrice.listprice || "0") > parseFloat(totalFramePrice.price || "0") && (
+                  <div className='list-price'>{getCurrency()}{totalFramePrice.listprice}</div>
                 )}
-                <div className='offer-price'>{getCurrency()}{frame?.price?.price}</div>
+                <div className='offer-price'>{getCurrency()}{totalFramePrice.price}</div>
               </div>
             </div>
         </div>
@@ -154,6 +196,10 @@ const Product = ({
              {frame?.attributes ? getFrameColor(frame.attributes) : "N/A"}
            </div>
            <div className='box frame-attribute-price'>
+              {parseFloat(frame?.price.listprice || "0") > parseFloat(frame?.price.price || "0") && (
+                    <div className='original-price'>{getCurrency()}{frame?.price?.listprice}</div>
+              )}
+              <div className='offer-price'>{getCurrency()}{frame?.price?.price}</div>
            </div>
            <div className="box lens-attribute">
              <span>Lens:</span>
@@ -161,7 +207,7 @@ const Product = ({
            <div className="box lens-attribute-value">
              {lens?.name || "N/A"}
            </div>
-           <div className="box frame-attribute-price">
+           <div className="box lens-attribute-price">
              {!!lens && !!service && (
                <><div className={clsx('list-price', { 'show-list-price': getTotalPriceforLenses(lens, service).listprice > getTotalPriceforLenses(lens, service).price })}>
                  <div className='original-price'>{getCurrency()}{getTotalPriceforLenses(lens, service).listprice}</div>
@@ -191,11 +237,11 @@ const Product = ({
                 <div className='model-name'>
                   <span>{name}</span>
                 </div>
-                <div className='total-price'>
-                  {parseFloat(frame?.price.listprice || "0") > parseFloat(frame?.price.price || "0") && (
-                    <div className='list-price'>{getCurrency()}{frame?.price?.listprice}</div>
+                <div className='total-price'>    
+                    {parseFloat(totalFramePrice.listprice || "0") > parseFloat(totalFramePrice.price || "0") && (
+                    <div className='list-price'>{getCurrency()}{totalFramePrice.listprice}</div>
                   )}
-                  <div className='offer-price'>{getCurrency()}{frame?.price?.price}</div>
+                  <div className='offer-price'>{getCurrency()}{totalFramePrice.price}</div>
                 </div>
               </div>
               <div className='box size-attribute'>
@@ -213,6 +259,10 @@ const Product = ({
                 {frame?.attributes ? getFrameColor(frame.attributes) : "N/A"}
               </div>
               <div className='box frame-attribute-price'>
+                {parseFloat(frame?.price.listprice || "0") > parseFloat(frame?.price.price || "0") && (
+                      <div className='original-price'>{getCurrency()}{frame?.price?.listprice}</div>
+                )}
+                <div className='offer-price'>{getCurrency()}{frame?.price?.price}</div>
               </div>
               <div className="box lens-attribute">
                 <span>Lens:</span>
@@ -220,7 +270,7 @@ const Product = ({
               <div className="box lens-attribute-value">
                 {lens?.name || "N/A"}
               </div>
-              <div className="box frame-attribute-price">
+              <div className="box lens-attribute-price">
                 {!!lens && !!service && (
                   <><div className={clsx('list-price', { 'show-list-price': getTotalPriceforLenses(lens, service).listprice > getTotalPriceforLenses(lens, service).price })}>
                     <div className='original-price'>{getCurrency()}{getTotalPriceforLenses(lens, service).listprice}</div>
