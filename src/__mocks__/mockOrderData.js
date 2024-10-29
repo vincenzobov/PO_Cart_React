@@ -274,7 +274,7 @@ export const mockLensDetails =  [
     thumbnail: "https://example.com/lens.png",
     parentProductID: "3074457345616908669",
     manufacturer: "Persol",
-    name: "SOLID TINT GREEN",
+    name: "Solid Tint Green",
     buyable: "true",
     metaKeyword: "Lens",
     storeID: "715838085",
