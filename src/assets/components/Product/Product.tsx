@@ -186,7 +186,7 @@ const totalFramePrice = getTotalPriceforProduct(frame?.price ?? defaultPrice, le
              <span>Lens:</span>
            </div>
            <div className="box lens-attribute-value">
-             {lens?.name || "N/A"}
+             {lens?.name || "Frame only"}
            </div>
            <div className="box lens-attribute-price">
              {!!lens && !!service && (
@@ -288,20 +288,20 @@ const totalFramePrice = getTotalPriceforProduct(frame?.price ?? defaultPrice, le
                 )}
                 <div className='offer-price'>{getCurrency()}{frame?.price?.price}</div>
               </div>
-              <div className="box lens-attribute">
-                <span>Lens:</span>
-              </div>
-              <div className="box lens-attribute-value">
-                {lens?.name || "N/A"}
-              </div>
-              <div className="box lens-attribute-price">
-                {!!lens && !!service && (
-                  <><div className={clsx('list-price', { 'show-list-price': getTotalPriceforLenses(lens, service).listprice > getTotalPriceforLenses(lens, service).price })}>
-                    <div className='original-price'>{getCurrency()}{getTotalPriceforLenses(lens, service).listprice}</div>
-                  </div><div className='offer-price'>{getCurrency()}{getTotalPriceforLenses(lens, service).price}</div></>
+                <div className="box lens-attribute">
+                  <span>Lens:</span>
+                </div>
+                <div className="box lens-attribute-value">
+                  {lens?.name || "Frame only"}
+                </div>
+                <div className="box lens-attribute-price">
+                  {!!lens && !!service && (
+                    <><div className={clsx('list-price', { 'show-list-price': getTotalPriceforLenses(lens, service).listprice > getTotalPriceforLenses(lens, service).price })}>
+                      <div className='original-price'>{getCurrency()}{getTotalPriceforLenses(lens, service).listprice}</div>
+                    </div><div className='offer-price'>{getCurrency()}{getTotalPriceforLenses(lens, service).price}</div></>
 
-                )}
-              </div>
+                  )}
+                </div>
               <div className='estimated-delivery-date-container'>
                 <EstimatedDeliveryDate daysToDelivery={"7"} />
               </div>

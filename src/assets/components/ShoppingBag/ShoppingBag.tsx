@@ -71,7 +71,7 @@ const ShoppingBag = () => {
           // Crea una mappa per i frame con lenti e servizi
           const frameMap: { [key: string]: FrameDetails } = {};
           frameDetails.forEach(frame => {
-            frameMap[frame.uniqueID] = { ...frame, lens: {} as ProductDetail, service: []};
+            frameMap[frame.uniqueID] = { ...frame, lens: undefined as unknown as ProductDetail, service: []};
           });
 
           // Associa lenti e servizi ai frame seguendo l'ordine
@@ -83,6 +83,7 @@ const ShoppingBag = () => {
             } else if (item.lineItemsTypes === 'RLNS' && currentFrameId) {
               const lens = lensDetails.find(l => l.uniqueID === item.productId);
               if (lens && frameMap[currentFrameId]) {
+                console.log("test",lens)
                 frameMap[currentFrameId].lens = lens;
               }
             } else if (item.lineItemsTypes === 'RSER' && currentFrameId) {
@@ -151,7 +152,6 @@ const ShoppingBag = () => {
           console.log("vincenzo-servizi",service.price.price)
         });
       }
-      console.log("vincenzo-servizi",frame.service)
       if(!!frame.lens){
         totalListPrice += parseFloat(frame.lens.price.listprice);
         totalOfferPrice += parseFloat(frame.lens.price.price);

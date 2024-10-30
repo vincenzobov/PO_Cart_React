@@ -89,7 +89,7 @@ export interface FrameDetails{
   buyable?: string,
   storeID: string,
   partNumber: string,
-  lens? : ProductDetail,
+  lens? : ProductDetail  | undefined
   service? : ProductDetail[],
   price : Price
 }
