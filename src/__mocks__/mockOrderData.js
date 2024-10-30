@@ -159,6 +159,57 @@ export  const mockOrderData = {
         language: "-1",
         lineItemsTypes: "RSER"
       },
+      {
+        orderItemId: "2230075",
+        unitQuantity: "1.0",
+        totalAdjustment: {
+          value: "0",
+          currency: "USD"
+        },
+        unitPrice: "342",
+        usableShippingChargePolicy: [
+          {
+            name: "StandardShippingChargeBySeller",
+            uniqueID: "-7001",
+            type: "ShippingCharge"
+          }
+        ],
+        currency: "USD",
+        fulfillmentCenterName: "PersolCAS Home",
+        orderItemInventoryStatus: "Available",
+        shippingTax: "0",
+        description: "Mail",
+        orderItemStatus: "P",
+        shippingChargeCurrency: "USD",
+        orderItemPrice: "342",
+        carrier: "Mail",
+        quantity: "1.0",
+        contractId: "4000000000000000013",
+        fulfillmentCenterId: "715837884",
+        createDate: "2024-09-14T13:30:03.703Z",
+        correlationGroup: "2230075",
+        salesTaxCurrency: "USD",
+        unitUom: "C62",
+        partNumber: "713132003343",
+        salesTax: "0",
+        isExpedited: "false",
+        freeGift: "false",
+        xitem_isPersonalAddressesAllowedForShipping: "true",
+        shipModeCode: "Mail",
+        orderItemFulfillmentStatus: "Unreleased",
+        shipModeDescription: "Mail",
+        shippingCharge: "0",
+        shipModeLanguage: "-1",
+        lastUpdateDate: "2024-09-14T13:33:39.075Z",
+        productId: "3074457345616679229",
+        shippingTaxCurrency: "USD",
+        offerID: "4000000000000103033",
+        UOM: "C62",
+        expectedShipDate: "2024-09-14T13:43:17.811Z",
+        shipModeId: "715838188",
+        language: "-1",
+        lineItemsTypes: "RFRM"
+      }
     ],
     totalAdjustment: "0",
     totalShippingTax: "0",
@@ -259,6 +310,59 @@ export const mockFrameDetails = [
       currency: "USD"
       },
   },
+  {
+    metaDescription: "Shop now PO3301V Eyeglasses in Black on Persol online store. Free Shipping and Returns on all orders.",
+    uniqueID: "3074457345616679229",
+    parentCategoryID: "3074457345616740168",
+    productType: "ItemBean",
+    resourceId: "https://stage.persol.com:443/wcs/resources/store/715838388/productview/byId/3074457345616908794",
+    title: "Persol PO3301V Eyeglasses in Black | Persol®",
+    thumbnail: "https://assets2.persol.com/cdn-record-files-pi/a42dd077-7907-4ce9-9c50-b168009f9bb4/80fa21c2-5f15-47af-b97f-b1860165d206/0PO3362V__24__P21__shad__qt.png?impolicy=HB_parameters&sclw=0.25&sclh=0.25",
+    parentProductID: "3074457345616908668",
+    manufacturer: "Persol",
+    name: "PO3362V - Wes",
+    buyable: "true",
+    metaKeyword: "Persol",
+    storeID: "715838084",
+    fullImageAltDescription: "Image for PO3301V from PersolUS",
+    partNumber: "8056597743365",
+    attributes: [
+      {
+      values: {
+        values: "0PO3143V--24",
+        uniqueID: "7741124012287139539",
+        identifier: "0PO3143V--24",
+      },
+      dataType: "STRING",
+      name: "Moco",
+      uniqueID: "7741124012283407835",
+      usage: "Descriptive",
+      displayable: "false",
+      comparable: "false",
+      identifier: "MOCO",
+      searchable: "false"
+      },{
+        values: {
+          values: "Acetate Havana",
+          uniqueID: "7741124012286551645",
+          identifier: "Acetate Havana",
+        },
+        dataType: "STRING",
+        name: "Frame_color",
+        uniqueID: "7741124012283407835",
+        usage: "Descriptive",
+        displayable: "false",
+        comparable: "false",
+        identifier: "FRAME_COLOR",
+        searchable: "false"
+        },
+    ],
+    price: {
+      price: "370.0",
+      listprice: "370.0",
+      currency: "USD"
+      },
+  }
   // Aggiungi altri frame mock se necessario
 ];
 
