@@ -33,14 +33,16 @@ const shippingOptions: ShippingOption[] = [
 
 type ShippingOptionsProps = {
   onShippingChange: (price: number) => void;
+  onShippingChangeType: (type: string) => void;
 };
 
-function ShippingOptions({ onShippingChange }: ShippingOptionsProps) {
+function ShippingOptions({ onShippingChange, onShippingChangeType }: ShippingOptionsProps) {
   const [selectedShipping, setSelectedShipping] = useState<ShippingOption>(shippingOptions[0]);
 
   const handleShippingChange = (option: ShippingOption) => {
     setSelectedShipping(option);
     onShippingChange(option.price);
+    onShippingChangeType(option.name);
   };
 
   return (

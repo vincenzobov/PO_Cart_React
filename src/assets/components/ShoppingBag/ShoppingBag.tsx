@@ -22,6 +22,7 @@ const ShoppingBag = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [frames, setFrames] = useState<FrameDetails[]>([]);
   const [shippingCost, setShippingCost] = useState(0);
+  const [shippingType, setShippingType] = useState("Green Shipping");
   const [totalPrice, setTotalPrice] = useState(0);
   useEffect(() => {
     const fetchOrderData = async () => {
@@ -217,8 +218,8 @@ const ShoppingBag = () => {
 
               {frames.length > 0 && (
                 <>
-                  <ShippingOptions onShippingChange={(price) => setShippingCost(price)} />
-                  <OrderSummary subtotal={calculateSubtotal(frames)} shippingPrice={shippingCost} />
+                  <ShippingOptions onShippingChange={(price) => setShippingCost(price)}  onShippingChangeType={(shippingType) => setShippingType(shippingType)}/>
+                  <OrderSummary subtotal={calculateSubtotal(frames)} shippingPrice={shippingCost} shippingType={shippingType} />
                   <CartButton />
                 </>
               )}
